@@ -1,50 +1,55 @@
-# JamHacks 9 Project
-## Flood Simulation
+# SafeRise 🌊 — Flood Risk Visualizer & Evacuation Advisor
 
-This project was created for JamHacks 9. It simulates flooding scenarios to help visualize and analyze flood risks.
+SafeRise is an interactive web tool designed to help users assess flood risks at any location around the world. By combining elevation data, rainfall simulation, and evacuation pathfinding, SafeRise provides real-time insights to support disaster preparedness and decision-making.
 
-### Features
+🚀 Built for **JamHacks 9**
 
-- Interactive flood simulation
-- Visualization of water flow and accumulation
-- Adjustable parameters for rainfall, terrain, and barriers
+---
 
-### APIs Used
+## 🌍 Features
 
-- **OpenWeatherMap API** – For real-time and historical weather data
-- **Mapbox API** – For map rendering and terrain visualization
+- 🗺️ **Interactive World Map** — Click anywhere to explore elevation and regional data.
+- 📏 **Flood Height Calculator** — Simulate flood scenarios based on rainfall intensity, duration, and terrain runoff.
+- 🚨 **Evacuation Advice** — Get intelligent alerts for 1m, 2.5m, and 5m flood levels.
+- 🧭 **Route to Safety** — Automatically finds and visualizes the closest higher ground using OpenRouteService.
+- 🎨 **Clean UI + Elevation Legend** — Gradient visualization and an intuitive sidebar panel.
 
-### Getting Started
+---
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/JamHacks9_Flood_Simulation.git
-    ```
-2. **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. **Run the simulation:**
-    ```bash
-    python main.py
-    ```
+## 🧠 How It Works
 
-### Folder Structure
+1. **User clicks on a location**  
+   ↳ We fetch elevation via our backend `/elevation` endpoint.
 
-- `main.py` - Entry point for the simulation
-- `simulation/` - Core simulation logic
-- `visualization/` - Code for rendering and UI
-- `data/` - Sample terrain and rainfall data
-- `README.md` - Project documentation
+2. **Flood simulation is generated**  
+   ↳ Based on selected rainfall and terrain data, a predicted flood height is calculated.
 
-### Usage
+3. **Safety advice is provided**  
+   ↳ Depending on elevation, users are warned or routed to nearby safe zones.
 
-Adjust simulation parameters in the UI or configuration files to explore different flooding scenarios.
+4. **Routing API kicks in (if needed)**  
+   ↳ Using OpenRouteService, the shortest driving path to safety is displayed.
 
-### Contributing
+---
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## 🔧 Tech Stack
 
-### License
+- **Frontend**: HTML, CSS, JavaScript, Leaflet.js
+- **APIs**:
+  - 🌦️ OpenWeatherMap (planned for historical rainfall data)
+  - 🌍 Mapbox (map tiles)
+  - 🗺️ OpenRouteService (routing)
+  - 🧭 Nominatim (reverse geocoding)
+  - 📡 Custom Elevation API (using Google or Open-Elevation backend)
 
-This project is licensed under the MIT License.
+---
+
+## 📦 Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/saferise.git
+cd saferise
+
+# Serve the app (using any local server, e.g. Python or Live Server)
+python3 -m http.server
